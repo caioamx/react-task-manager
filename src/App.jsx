@@ -1,9 +1,12 @@
 import { useState } from "react";
+import FormTask from "./components/FormTask";
+import ListTask from "./components/ListTask";
 
 function App() {
   return (
-    <div className=" flex h-screen items-center justify-center bg-[#1C1B1B]">
-      <h1 className="text-2xl font-bold text-white"> Olá Mundo</h1>
+    <div className=" bg-[#141313] p-5 flex h-screen items-center justify-center ">
+      <FormTask />
+      <ListTask />
     </div>
   );
 }
