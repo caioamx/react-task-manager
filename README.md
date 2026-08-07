@@ -1,16 +1,37 @@
-# React + Vite
+# Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido em **React** com o objetivo de colocar em prática os conhecimentos adquiridos durante meus estudos da tecnologia.
 
-Currently, two official plugins are available:
+Este projeto é, principalmente, uma forma de **aprender, praticar e experimentar conceitos do React**, construindo uma aplicação enquanto avanço nos meus estudos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologias
 
-## React Compiler
+- React
+- JavaScript
+- Vite
+- Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## O que estou estudando
 
-## Expanding the ESLint configuration
+Durante o desenvolvimento deste projeto, estou praticando e aprofundando conhecimentos em:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Componentização
+- Props
+- Hooks
+- Gerenciamento de estado
+- Eventos e formulários
+- Renderização condicional
+- Organização de componentes
+- Estilização com Tailwind CSS
+
+## Objetivo
+
+O objetivo não é apenas criar um Task Manager, mas utilizar o projeto como um **ambiente de aprendizado prático**.
+
+Conforme eu aprender novos conceitos e tecnologias, o projeto será atualizado e evoluído, permitindo aplicar esses conhecimentos na prática.
+
+> Este projeto está em desenvolvimento e será evoluído continuamente conforme avanço nos meus estudos de React.
+
+---
+
+**Projeto desenvolvido para fins de estudo e prática.**
