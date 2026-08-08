@@ -15,21 +15,24 @@ function ListTask() {
           >
             <div className="h-12 flex flex-row w-full justify-between items-start ">
               <span className="h-10 items-center flex flex-row w-auto">
-                <span className="px-2 py-1.5 bg-green-200 rounded mb-1 mr-3 text-center text-emerald-800">
-                  Concluido
+                <span
+                  className={`px-2 py-1.5 rounded mb-1 mr-3 text-center ${task.status === "Concluida" ? "bg-green-200 text-emerald-800" : task.status === "Em Andamento" ? "bg-orange-200 text-orange-500" : "bg-gray-200 text-gray-700"}`}
+                >
+                  {task.status}
                 </span>
                 <CalendarDays size={30} color="#E5E2E1" />
-                <p className="text-[#C4C7C8] ml-2 font-semibold">02/10</p>
+                <p className="text-[#C4C7C8] ml-2 font-semibold">{task.date}</p>
               </span>
 
               <X size={30} color="#E5E2E1" />
             </div>
             <h1 className="text-4xl font-bold text-[#E5E2E1] mb-3">
-              Aprender React
+              {task.titulo}
             </h1>
-            <p className="text-[#C4C7C8]">
-              Para aprender React do zero, você deve dominar os fundamentos de
-              JavaScript moderno, a criação de componentes, o uso de hooks...
+            <p className="text-[#C4C7C8] break-all">
+              {task.desc.length <= 130
+                ? task.desc
+                : task.desc.slice(1, 130) + "..."}
             </p>
             <div className="w-full h-10 flex items-center justify-end">
               <button

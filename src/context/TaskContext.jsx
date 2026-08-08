@@ -5,14 +5,11 @@ export const TaskContext = createContext();
 
 //Criando Modulo do Contexto
 export const TaskProvider = ({ children }) => {
-  const [task, setTask] = useState([
-    { id: 1, titulo: "aaa" },
-    { id: 2, titulo: "aaa" },
-    { id: 3, titulo: "aaa" },
-  ]);
+  const [task, setTask] = useState([]);
 
   const addTask = (task) => {
     setTask((prev) => [...prev, task]);
+    console.log(task);
   };
 
   const deleteTask = (taskID) => {
