@@ -3,7 +3,11 @@ import { CalendarDays } from "lucide-react";
 import { useTask } from "../hooks/TaskHook";
 
 function ListTask() {
-  const { task } = useTask();
+  const { task, deleteTask } = useTask();
+
+  const onClickDelete = (taskID) => {
+    deleteTask(taskID);
+  };
 
   return (
     <div className="w-full h-full overflow-auto mx-10 flex flex-col  items-end m-2">
@@ -24,6 +28,7 @@ function ListTask() {
                 <p className="text-[#C4C7C8] ml-2 font-semibold">{task.date}</p>
               </span>
               <button
+                onClick={() => onClickDelete(task.id)}
                 className="bg-transparent h-9 w-12 font-bold flex items-center justify-center  rounded-xl
                              hover:bg-[#444748] transform duration-200"
               >
