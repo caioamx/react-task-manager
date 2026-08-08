@@ -57,6 +57,7 @@ function FormTask() {
         focus:ring-1 focus:ring-white focus:border-white focus:outline-none"
             type="text"
             name="titulo"
+            id="titulo"
             onChange={handleChange}
             value={form.titulo}
             placeholder="Ex: Finalizar Projeto"
@@ -73,6 +74,7 @@ function FormTask() {
              bg-[#000000] my-2 w-full transition duration-400 text-white border-3 border-[#454747] p-2 rounded-lg outline-none
              focus:ring-1 focus:ring-white focus:border-white focus:outline-none "
               name="status"
+              id="status"
               onChange={handleChange}
               value={form.status}
             >
@@ -92,6 +94,7 @@ function FormTask() {
               className=" bg-[#000000] my-2 w-full transition duration-400 text-white border-3 border-[#454747] p-2 rounded-lg outline-none
         focus:ring-1 focus:ring-white focus:border-white focus:outline-none "
               name="date"
+              id="date"
             />
           </div>
         </div>
@@ -107,6 +110,7 @@ function FormTask() {
         "
             placeholder="Descreva o objetivo dessa tarefa..."
             name="desc"
+            id="desc"
             onChange={handleChange}
             value={form.desc}
           ></textarea>
