@@ -14,7 +14,7 @@ function FormTask() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+
     setForm((prev) => ({
       ...prev,
       [name]: value,
@@ -74,8 +74,9 @@ function FormTask() {
              focus:ring-1 focus:ring-white focus:border-white focus:outline-none "
               name="status"
               onChange={handleChange}
+              value={form.status}
             >
-              <option selected> </option>
+              <option value=""> </option>
               <option value="Pendente">Pendente</option>
               <option value="Em Andamento">Em Andamento</option>
               <option value="Concluida">Concluida</option>
@@ -115,7 +116,7 @@ function FormTask() {
           type="submit"
           className="
       bg-[#FFFFFF] h-10 font-bold w-full rounded-xl
-        hover:bg-[#C4C7C8]
+        hover:bg-[#C4C7C8] transform duration-200
       "
         >
           Criar Tarefa

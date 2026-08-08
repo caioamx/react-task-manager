@@ -23,8 +23,12 @@ function ListTask() {
                 <CalendarDays size={30} color="#E5E2E1" />
                 <p className="text-[#C4C7C8] ml-2 font-semibold">{task.date}</p>
               </span>
-
-              <X size={30} color="#E5E2E1" />
+              <button
+                className="bg-transparent h-9 w-12 font-bold flex items-center justify-center  rounded-xl
+                             hover:bg-[#444748] transform duration-200"
+              >
+                <X size={30} color="#E5E2E1" />
+              </button>
             </div>
             <h1 className="text-4xl font-bold text-[#E5E2E1] mb-3">
               {task.titulo}
@@ -38,7 +42,7 @@ function ListTask() {
               <button
                 className="
             bg-[#FFFFFF] w-30 my-3 float-right h-10 font-bold rounded-xl
-              hover:bg-[#C4C7C8]
+              hover:bg-[#C4C7C8] transform duration-200
             "
               >
                 Ver Mais
