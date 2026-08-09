@@ -7,11 +7,12 @@ export const TaskContext = createContext();
 export const TaskProvider = ({ children }) => {
   const [task, setTask] = useState([]);
 
+  // Adicionar Tarefa a Lista
   const addTask = (task) => {
     setTask((prev) => [...prev, task]);
-    console.log(task);
   };
 
+  // Remover Tarefa da Lista
   const deleteTask = (taskID) => {
     setTask(task.filter((task) => task.id !== taskID));
   };
