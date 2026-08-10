@@ -1,9 +1,16 @@
 import { X } from "lucide-react";
 import { CalendarDays } from "lucide-react";
 import { useTask } from "../hooks/TaskHook";
+import { useNavigate } from "react-router-dom";
 
 function ListTask() {
   const { task, deleteTask } = useTask();
+  const navigate = useNavigate();
+
+  // Função que Altera a URL e Navega Para Detalhes da Tarefa
+  const onClickNavigate = (id) => {
+    navigate(`/details/${id}`);
+  };
 
   // Função para Excluir Tarefa atráves do Context
   const onClickDelete = (taskID) => {
@@ -31,6 +38,7 @@ function ListTask() {
                   {task.date}
                 </p>
               </span>
+
               <button
                 onClick={() => onClickDelete(task.id)}
                 className="bg-transparent h-9 w-12 font-bold flex items-center justify-center rounded-xl
@@ -50,6 +58,7 @@ function ListTask() {
             </p>
             <div className="w-full h-10 mt-2 flex items-center justify-end">
               <button
+                onClick={() => onClickNavigate(task.id)}
                 className="
               bg-[#FFFFFF] w-28 my-3 text-sm float-right h-8 font-bold rounded-xl
               hover:bg-[#C4C7C8] transform duration-200

@@ -38,7 +38,7 @@ function FormTask() {
 
   return (
     <div className="w-[30%] flex justify-center items-center h-full">
-      <div className="bg-[#2F3131] border-2 border-[#444748] flex flex-col justify-center rounded-lg p-8 h-[90%] w-105  ">
+      <div className="bg-[#2F3131] border-2 border-[#444748] flex flex-col justify-center rounded-lg p-8 h-[90%] w-105">
         <div className="flex items-center flex-row">
           <ClipboardPen
             className="bg-[#444748] box-content rounded-xl p-3"
