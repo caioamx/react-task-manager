@@ -11,6 +11,7 @@ function FormTask({ formState, setFormState }) {
   });
   const { task, addTask, editTask } = useTask();
 
+  // Busca a Tarefa que Está sendo Editada e Adiciona ao Formulário as Atuais informações
   useEffect(() => {
     const taskEditing = task.find((task) => task.id === formState.id);
     setForm((prev) => ({
@@ -22,7 +23,8 @@ function FormTask({ formState, setFormState }) {
   useEffect(() => {
     console.log(form);
   }, [form]);
-  // Função que Captura os valores dos inputs e altera as Propriedades da State
+
+  // Função que Captura os Valores dos Inputs e Altera as Propriedades da State
   const handleChange = (e) => {
     const { name, value } = e.target; // Capturando Valores do Disparador do Evento
 
@@ -31,16 +33,21 @@ function FormTask({ formState, setFormState }) {
       [name]: value,
     }));
   };
-  // Função Responsavel por Criar o ID da Tarefa e Usar o Context para adicionar a tarefa
+
+  // Função que Adiciona a State de Task a Tarefa Criada
   const handleSubmit = (e) => {
     e.preventDefault();
 
     addTask({
-      id: Date.now(),
+      id: Date.now(), // ID Criado no Momento da Criação da Tarefa
       ...form,
     });
+
+    // Limpeza do Formulário Atráves da Função de Reset
     const clearForm = e.target;
     clearForm.reset();
+
+    // Limpando Informações Dentro da State
     setForm({
       titulo: "",
       desc: "",
@@ -49,13 +56,18 @@ function FormTask({ formState, setFormState }) {
     });
   };
 
+  // Função Envia a Tarefa com a Nova Versão Editada
   const handleSubmitEdit = (e) => {
     e.preventDefault();
 
     editTask(form);
-    setFormState({ state: false, id: 0 });
-    const clearForm = e.target;
+    setFormState({ state: false, id: 0 }); // Voltando o Estado de Criação do Formulário
 
+    // Limpeza do Formulário Atráves da Função de Reset
+    const clearForm = e.target;
+    clearForm.reset();
+
+    // Limpando Informações Dentro da State
     setForm({
       titulo: "",
       desc: "",
@@ -82,6 +94,7 @@ function FormTask({ formState, setFormState }) {
             </p>
           </div>
         </div>
+        {/* Formulário com Função onSubmit Dinâmica (Criar/Editar Tarefa) */}
         <form
           className="h-full flex flex-col justify-between"
           onSubmit={formState.status ? handleSubmitEdit : handleSubmit}
@@ -92,8 +105,8 @@ function FormTask({ formState, setFormState }) {
             </label>
             <input
               className="
-        bg-[#000000] my-2 text-sm w-full transition duration-400 text-white border-3 border-[#454747] p-2 rounded-lg outline-none
-        focus:ring-1 focus:ring-white focus:border-white focus:outline-none"
+              bg-[#000000] my-2 text-sm w-full transition duration-400 text-white border-3 border-[#454747] p-2 rounded-lg outline-none
+              focus:ring-1 focus:ring-white focus:border-white focus:outline-none"
               type="text"
               name="titulo"
               id="titulo"

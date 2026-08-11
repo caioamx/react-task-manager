@@ -13,11 +13,12 @@ function ListTask() {
     navigate(`/details/${id}`);
   };
 
-  // Função para Excluir Tarefa atráves do Context
+  // Função para Alterar a State do Formulário para Modo de Edição
   const onClickEditing = (id) => {
     setFormState({ status: true, id: id });
   };
 
+  // Função para Excluir Tarefa atráves do Context
   const onClickDelete = (taskID) => {
     deleteTask(taskID);
   };
@@ -33,6 +34,7 @@ function ListTask() {
           >
             <div className="h-8 flex flex-row w-full justify-between items-start ">
               <span className="h-10 items-center flex flex-row w-auto">
+                {/* Condicional para Estilização da Badge */}
                 <span
                   className={`px-2 text-xs py-1.5 rounded mb-1 mr-3 text-center ${task.status === "Concluida" ? "bg-green-200 text-emerald-800" : task.status === "Em Andamento" ? "bg-orange-200 text-orange-500" : "bg-gray-200 text-gray-700"}`}
                 >
