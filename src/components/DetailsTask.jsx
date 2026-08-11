@@ -25,7 +25,7 @@ function DetailsTask() {
       <div className="w-[80%] bg-[#201F1F] border-[#444748] border-2 h-full rounded-lg gap-3 p-5 mr-5 grid grid-cols-4">
         <div className="bg-transparent rounded-xl h-30 py-5 col-span-full">
           <h1 className="text-[#E5E2E1] flex mb-4 my-2 flex-col text-5xl font-bold">
-            {selectTask.titulo.length === 0 ? "Sem Título" : selectTask.titulo}
+            {selectTask.titulo === "" ? "Sem Título" : selectTask.titulo}
           </h1>
           <span className="flex flex-row items-center">
             <span
