@@ -63,7 +63,7 @@ function ListTask() {
               </div>
             </div>
             <h1 className="text-2xl font-bold text-[#E5E2E1] mt-2 mb-1">
-              {task.titulo}
+              {task.titulo.length === 0 ? "Sem Título" : task.titulo}
             </h1>
             <p className="text-[#C4C7C8] text-sm break-all">
               {/* Condicional para Limitar o Texto da Descrição Substituindo o Final por Fetecencias (...) */}

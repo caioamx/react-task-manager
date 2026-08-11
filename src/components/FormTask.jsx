@@ -6,8 +6,8 @@ function FormTask({ formState, setFormState }) {
   const [form, setForm] = useState({
     titulo: "",
     desc: "",
-    date: "",
-    status: "",
+    date: "Sem Previsão",
+    status: "Ausente",
   });
   const { task, addTask, editTask } = useTask();
 
@@ -51,8 +51,8 @@ function FormTask({ formState, setFormState }) {
     setForm({
       titulo: "",
       desc: "",
-      date: "",
-      status: "",
+      date: "Sem Previsão",
+      status: "Ausente",
     });
   };
 
@@ -71,8 +71,8 @@ function FormTask({ formState, setFormState }) {
     setForm({
       titulo: "",
       desc: "",
-      date: "",
-      status: "",
+      date: "Sem Previsão",
+      status: "Ausente",
     });
   };
 
