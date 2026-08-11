@@ -1,10 +1,11 @@
 import { X } from "lucide-react";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, Pencil } from "lucide-react";
 import { useTask } from "../hooks/TaskHook";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 function ListTask() {
   const { task, deleteTask } = useTask();
+  const { setFormState } = useOutletContext();
   const navigate = useNavigate();
 
   // Função que Altera a URL e Navega Para Detalhes da Tarefa
@@ -13,6 +14,10 @@ function ListTask() {
   };
 
   // Função para Excluir Tarefa atráves do Context
+  const onClickEditing = (id) => {
+    setFormState({ status: true, id: id });
+  };
+
   const onClickDelete = (taskID) => {
     deleteTask(taskID);
   };
@@ -38,14 +43,22 @@ function ListTask() {
                   {task.date}
                 </p>
               </span>
-
-              <button
-                onClick={() => onClickDelete(task.id)}
-                className="bg-transparent h-9 w-12 font-bold flex items-center justify-center rounded-xl
+              <div className="flex items-center justify-center flex-row">
+                <button
+                  onClick={() => onClickEditing(task.id)}
+                  className="bg-transparent h-9 w-12 font-bold flex items-center justify-center rounded-xl
                          hover:bg-[#444748] transform duration-200"
-              >
-                <X size={30} color="#E5E2E1" />
-              </button>
+                >
+                  <Pencil size={24} color="#E5E2E1" />
+                </button>
+                <button
+                  onClick={() => onClickDelete(task.id)}
+                  className="bg-transparent h-9 w-12 font-bold flex items-center justify-center rounded-xl
+                         hover:bg-[#444748] transform duration-200"
+                >
+                  <X size={30} color="#E5E2E1" />
+                </button>
+              </div>
             </div>
             <h1 className="text-2xl font-bold text-[#E5E2E1] mt-2 mb-1">
               {task.titulo}

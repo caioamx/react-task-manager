@@ -1,16 +1,27 @@
 import { ClipboardPen } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTask } from "../hooks/TaskHook";
 
-function FormTask() {
+function FormTask({ formState, setFormState }) {
   const [form, setForm] = useState({
     titulo: "",
     desc: "",
-    date: null,
-    status: null,
+    date: "",
+    status: "",
   });
-  const { addTask } = useTask();
+  const { task, addTask, editTask } = useTask();
 
+  useEffect(() => {
+    const taskEditing = task.find((task) => task.id === formState.id);
+    setForm((prev) => ({
+      ...prev,
+      ...taskEditing,
+    }));
+  }, [formState]);
+
+  useEffect(() => {
+    console.log(form);
+  }, [form]);
   // Função que Captura os valores dos inputs e altera as Propriedades da State
   const handleChange = (e) => {
     const { name, value } = e.target; // Capturando Valores do Disparador do Evento
@@ -23,16 +34,33 @@ function FormTask() {
   // Função Responsavel por Criar o ID da Tarefa e Usar o Context para adicionar a tarefa
   const handleSubmit = (e) => {
     e.preventDefault();
+
     addTask({
       id: Date.now(),
       ...form,
     });
+    const clearForm = e.target;
+    clearForm.reset();
+    setForm({
+      titulo: "",
+      desc: "",
+      date: "",
+      status: "",
+    });
+  };
+
+  const handleSubmitEdit = (e) => {
+    e.preventDefault();
+
+    editTask(form);
+    setFormState({ state: false, id: 0 });
+    const clearForm = e.target;
 
     setForm({
       titulo: "",
       desc: "",
-      date: null,
-      status: null,
+      date: "",
+      status: "",
     });
   };
 
@@ -56,7 +84,7 @@ function FormTask() {
         </div>
         <form
           className="h-full flex flex-col justify-between"
-          onSubmit={handleSubmit}
+          onSubmit={formState.status ? handleSubmitEdit : handleSubmit}
         >
           <div className="w-full my-4 flex-col flex justify-between">
             <label className="text-[#C4C7C8] text-sm" htmlFor="titulo">
@@ -89,7 +117,7 @@ function FormTask() {
                 onChange={handleChange}
                 value={form.status}
               >
-                <option value=""> </option>
+                <option value=""></option>
                 <option value="Pendente">Pendente</option>
                 <option value="Em Andamento">Em Andamento</option>
                 <option value="Concluida">Concluida</option>
@@ -106,6 +134,7 @@ function FormTask() {
         focus:ring-1 focus:ring-white focus:border-white focus:outline-none "
                 name="date"
                 id="date"
+                value={form.date}
               />
             </div>
           </div>
@@ -134,7 +163,7 @@ function FormTask() {
         hover:bg-[#C4C7C8] transform duration-200
       "
           >
-            Criar Tarefa
+            {formState.status ? "Editar" : "Criar Tarefa"}
           </button>
         </form>
       </div>
